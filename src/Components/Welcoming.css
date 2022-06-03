@@ -1,11 +1,22 @@
-.intro {
+.Welcoming-message {
   font-family: "Comfortaa", cursive;
   padding: 1rem;
   margin: 0;
-  display: inline-block;
   color: white;
+}
+
+.intro-h1 {
   font-size: 2.5rem;
 }
+
+.intro-h2 {
+  font-size: 2rem;
+}
+
+.intro-h3 {
+  font-size: 1.5rem;
+}
+
 .welcomingContainer {
   width: 100vw;
   height: 100vh;
@@ -15,11 +26,62 @@
   align-items: center;
   justify-content: center;
   background-color: #6667ab;
-  transition: ease-in-out 1s;
+  opacity: 100;
+  transition: opacity 1s;
 }
 
-.welcomingBackground.active {
-  bottom: 0;
-  opacity: 1;
-  transition: ease-in 0.5s;
+.fade {
+  opacity: 0;
+  height: 0;
+  transition: ease-in-out 1.5s;
+}
+
+.intro-welcome {
+  opacity: 0;
+  animation: fadein-welcome 1s ease-in 0.5s forwards;
+}
+
+.intro-to {
+  opacity: 0;
+  animation: fadein 1s ease-in 1.5s forwards;
+}
+
+.intro-name {
+  opacity: 0;
+  animation: fadein 1s ease-in 1.9s forwards;
+}
+
+.intro-prof {
+  opacity: 0;
+  animation: fadein 1s ease-in 2.3s forwards;
+}
+
+.intro-description {
+  opacity: 0;
+  animation: fadein 1s ease-in 2.5s forwards;
+}
+
+@keyframes fadein-welcome {
+  0% {
+    font-size: 5rem;
+    opacity: 1;
+  }
+  50% {
+    font-size: 5rem;
+    opacity: 1;
+  }
+
+  100% {
+    font-size: 2rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

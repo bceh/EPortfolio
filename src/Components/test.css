@@ -1,0 +1,147 @@
+#welcoming {
+  width: 100vw;
+  height: 100vh;
+  transition: height 0.5s;
+  overflow: hidden;
+  text-align: center;
+}
+.welcome-background {
+  height: 100vh;
+  background: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  animation: namecard-fadein 6s ease-in-out forwards;
+}
+.pre-heading {
+  opacity: 0;
+  animation: fadein 1s ease-in 0.8s forwards;
+}
+.heading {
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: xx-large;
+  color: white;
+  animation: fadein 1s ease-in 1.5s forwards;
+}
+.sub-heading {
+  opacity: 0;
+  animation: fadein 1s ease-in 2s forwards;
+}
+.welcome-info {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 240px);
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 240px;
+  top: 0;
+}
+.welcome-info .avatar {
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  animation: fadein 1s ease-in 5s forwards;
+}
+.summary {
+  width: 80%;
+  margin-top: 50px;
+  text-align: center;
+}
+.outside {
+  overflow: hidden;
+  display: inline-block;
+}
+.inside {
+  opacity: 0;
+  color: grey;
+  display: inline-block;
+  animation: word-moveup 3s ease-in forwards;
+}
+.scroll-button .MuiSvgIcon-root {
+  margin-top: 40px;
+  font-size: 48px;
+  color: grey;
+}
+.scroll-button .MuiSvgIcon-root path {
+  opacity: 0;
+  animation: fadein 1s ease-in 7s forwards;
+}
+
+@keyframes namecard-fadein {
+  0% {
+    opacity: 0;
+    width: 0;
+    transform: translateX(50vw);
+  }
+  20% {
+    opacity: 1;
+    width: 100vw;
+    transform: translateX(0);
+  }
+  50% {
+    width: 100vw;
+    transform: translateX(0);
+  }
+  80% {
+    width: 240px;
+    transform: translateX(calc(0.5 * (100vw - 240px)));
+  }
+  100% {
+    width: 240px;
+    transform: translateX(0);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes word-moveup {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes icon-fadein {
+  from {
+    display: none;
+  }
+  50% {
+    display: initial;
+    color: white;
+  }
+  to {
+    color: grey;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .welcome-info .avatar {
+    display: none;
+  }
+  .summary {
+    display: none;
+  }
+}
