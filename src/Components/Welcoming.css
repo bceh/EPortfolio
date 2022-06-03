@@ -1,0 +1,25 @@
+.intro {
+  font-family: "Comfortaa", cursive;
+  padding: 1rem;
+  margin: 0;
+  display: inline-block;
+  color: white;
+  font-size: 2.5rem;
+}
+.welcomingContainer {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #6667ab;
+  transition: ease-in-out 1s;
+}
+
+.welcomingBackground.active {
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in 0.5s;
+}
