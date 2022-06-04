@@ -14,7 +14,7 @@ const Welcoming = () => {
   };
   return (
     <div className={getClass()}>
-      <content className="Welcoming-message">
+      <article className="Welcoming-message">
         <h2 className="intro-h2">
           <span className="intro-welcome">Welcome</span>
           <span className="intro-to"> To</span>
@@ -26,7 +26,7 @@ const Welcoming = () => {
         <h3 className="intro-description intro-h3">
           A Front-end Web Developer{" "}
         </h3>
-      </content>
+      </article>
     </div>
   );
 };

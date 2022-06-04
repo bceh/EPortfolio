@@ -1,0 +1,16 @@
+.container {
+  margin: 0 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  max-width: 900px;
+}
+
+.discription {
+  max-width: 500px;
+  display: inline-block;
+  font-family: Comfortaa;
+}
