@@ -1,5 +1,6 @@
 //react Components
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //MUI materials
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -19,7 +20,8 @@ import Web from "@mui/icons-material/Web";
 import FilePresent from "@mui/icons-material/FilePresent";
 import VideogameAsset from "@mui/icons-material/VideogameAsset";
 import Apps from "@mui/icons-material/Apps";
-const NavBar = (props) => {
+const NavBar = () => {
+  const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState(false);
   const toggleDrawer = (open) => {
     setOpenDrawer(open);
@@ -38,12 +40,12 @@ const NavBar = (props) => {
     paddingRight: "0.5rem",
   };
 
-  const listItem = (text, icon) => {
+  const listItem = (text, icon, html) => {
     return (
       <ListItem key={text} disablePadding>
-        <ListItemButton>
+        <ListItemButton onClick={() => navigate(html)}>
           <ListItemIcon>{icon}</ListItemIcon>
-          <ListItemText primary={text} />
+          <ListItemText>{text}</ListItemText>
         </ListItemButton>
       </ListItem>
     );
@@ -61,15 +63,15 @@ const NavBar = (props) => {
       <Toolbar />
       <Divider />
       <List>
-        {listItem("Home", <Home />)}
-        {listItem("Web", <Web />)}
-        {listItem("Games", <VideogameAsset />)}
-        {listItem("Apps", <Apps />)}
+        {listItem("Home", <Home />, "/")}
+        {listItem("Web", <Web />, "/web")}
+        {listItem("Games", <VideogameAsset />, "/games")}
+        {listItem("Apps", <Apps />, "/apps")}
       </List>
       <Divider />
       <List>
-        {listItem("About Me", <Person />)}
-        {listItem("Resume", <FilePresent />)}
+        {listItem("About Me", <Person />, "/aboutme")}
+        {listItem("Resume", <FilePresent />, "/")}
       </List>
     </Box>
   );

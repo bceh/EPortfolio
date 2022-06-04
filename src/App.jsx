@@ -5,6 +5,11 @@ import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import Welcoming from "./Components/Welcoming";
 import Box from "@mui/material/Box";
+import Web from "./Components/Web";
+import Games from "./Components/Games";
+import Apps from "./Components/Apps";
+import AboutMe from "./Components/AboutMe";
+
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -17,14 +22,18 @@ function App() {
         <Welcoming />
       ) : (
         <Box>
-          <NavBar />
-          <Box sx={{ ml: { lg: "200px" }, mt: "2rem" }}>
-            <BrowserRouter className="content">
+          <BrowserRouter className="content">
+            <NavBar />
+            <Box sx={{ ml: { lg: "200px" }, mt: "2rem" }}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/web" element={<Web />} />
+                <Route path="/games" element={<Games />} />
+                <Route path="/apps" element={<Apps />} />
+                <Route path="/aboutme" element={<AboutMe />} />
               </Routes>
-            </BrowserRouter>
-          </Box>
+            </Box>
+          </BrowserRouter>
         </Box>
       )}
     </div>
