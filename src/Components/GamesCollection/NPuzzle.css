@@ -1,0 +1,26 @@
+.NPuzzle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.NPuzzle-table {
+  width: 512px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.NPuzzle-board {
+  width: 470px;
+  height: 470px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 7px solid #db7400;
+  border-radius: 17px;
+  background-color: #f2cb0a;
+}
