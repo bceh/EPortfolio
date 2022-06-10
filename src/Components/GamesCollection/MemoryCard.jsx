@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 import Paper from "@mui/material/Paper";
 import FlipCard from "./FlipCard";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 const prevCard = [];
 
@@ -22,6 +24,8 @@ const MemoryCard = () => {
     { item: 0, flipped: false },
     { item: 0, flipped: false },
   ]);
+  const navigate = useNavigate();
+
   const [finished, setFinished] = useState(false);
   useEffect(() => {
     const newCards = [..._.shuffle(cards)];
@@ -80,53 +84,62 @@ const MemoryCard = () => {
   };
 
   return (
-    <Paper
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Grid
-        container
+    <Box>
+      <Button
+        variant="outlined"
+        sx={{ ml: "1rem", mb: "1rem" }}
+        onClick={() => navigate("/games:memoryCard")}
+      >
+        Back To Games
+      </Button>
+      <Paper
         sx={{
-          minWidth: "790px",
-          maxWidth: "790px",
-          height: "800px",
-          border: "5px solid black",
           display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {cards.map(({ item, flipped }, index) => (
-          <Grid key={index} item xs={3}>
-            <FlipCard
-              key={index}
-              index={index}
-              item={item}
-              onChangeStatus={changeStatus}
-              flipped={flipped}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <Grid space={4}>
-        <Button
-          sx={{ display: `${finished ? "none" : "block-inline"}` }}
-          disabled={finished}
-          onClick={showResultHandler}
+        <Grid
+          container
+          sx={{
+            minWidth: "790px",
+            maxWidth: "790px",
+            height: "800px",
+            border: "5px solid black",
+            display: "flex",
+            alignItems: "center",
+          }}
         >
-          Show Results
-        </Button>
-        <Button
-          sx={{ display: `${finished ? "block-inline" : "none"}` }}
-          onClick={resetHandler}
-        >
-          Play Again
-        </Button>
-      </Grid>
-    </Paper>
+          {cards.map(({ item, flipped }, index) => (
+            <Grid key={index} item xs={3}>
+              <FlipCard
+                key={index}
+                index={index}
+                item={item}
+                onChangeStatus={changeStatus}
+                flipped={flipped}
+              />
+            </Grid>
+          ))}
+        </Grid>
+        <Grid space={4}>
+          <Button
+            sx={{ display: `${finished ? "none" : "block-inline"}` }}
+            disabled={finished}
+            onClick={showResultHandler}
+          >
+            Show Results
+          </Button>
+          <Button
+            sx={{ display: `${finished ? "block-inline" : "none"}` }}
+            onClick={resetHandler}
+          >
+            Play Again
+          </Button>
+        </Grid>
+      </Paper>
+    </Box>
   );
 };
 

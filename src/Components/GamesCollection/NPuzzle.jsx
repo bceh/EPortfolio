@@ -1,5 +1,6 @@
 // games/npuzzle
 import "./NPuzzle.css";
+import { useNavigate } from "react-router-dom";
 import { moveCards, getShuffledCards, getAns } from "./NPuzzleLogic.js";
 import _ from "lodash";
 import React, { useState, useEffect } from "react";
@@ -21,6 +22,7 @@ const NPuzzle = () => {
   const [cardsType, setCardsType] = useState(3);
   const [moves, setMoves] = useState(0);
   const [isComplete, setIscomplete] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCards(getShuffledCards(3));
@@ -104,44 +106,53 @@ const NPuzzle = () => {
   };
 
   return (
-    <Box className="NPuzzle-container">
-      <Paper className="NPuzzle-table" elevation={3}>
-        <ToggleButtonGroup
-          value={cardsType}
-          exclusive
-          onChange={typeClickHandler}
-          size="large"
-          color="primary"
-          sx={{ mb: "1rem" }}
-        >
-          <ToggleButton value={3}>EASY (3 × 3)</ToggleButton>
-          <ToggleButton value={4}>NORMAL (4 × 4)</ToggleButton>
-          <ToggleButton value={5}>HARD (5 × 5)</ToggleButton>
-        </ToggleButtonGroup>
-        <Box className="NPuzzle-board">
-          {cards.map((row, row_i) =>
-            row.map((num, col_i) => card(num, row_i, col_i))
-          )}
-        </Box>
-        <Box sx={{ display: "flex", mt: "0.8rem" }}>
-          <Stack direction="row" spacing={25}>
-            <Typography sx={{ mt: "4px" }} variant="h5">
-              Moves: {moves}
-            </Typography>
-            <Button size="large" onClick={resetClickHandler}>
-              New Game
-            </Button>
-          </Stack>
-        </Box>
-      </Paper>
-      <Dialog open={isComplete} onClose={dialogCloseHandler}>
-        <DialogTitle>Congragulation! You Win!</DialogTitle>
-        <DialogContent>You win in {moves} moves.</DialogContent>
-        <DialogActions>
-          <Button onClick={dialogResetHandler}>Play Again</Button>
-          <Button onClick={dialogCloseHandler}>Close</Button>
-        </DialogActions>
-      </Dialog>
+    <Box>
+      <Button
+        variant="outlined"
+        sx={{ mb: "1rem", ml: "1rem" }}
+        onClick={() => navigate("/games:NPuzzle")}
+      >
+        Back To Games
+      </Button>
+      <Box className="NPuzzle-container">
+        <Paper className="NPuzzle-table" elevation={3}>
+          <ToggleButtonGroup
+            value={cardsType}
+            exclusive
+            onChange={typeClickHandler}
+            size="large"
+            color="primary"
+            sx={{ mb: "1rem" }}
+          >
+            <ToggleButton value={3}>EASY (3 × 3)</ToggleButton>
+            <ToggleButton value={4}>NORMAL (4 × 4)</ToggleButton>
+            <ToggleButton value={5}>HARD (5 × 5)</ToggleButton>
+          </ToggleButtonGroup>
+          <Box className="NPuzzle-board">
+            {cards.map((row, row_i) =>
+              row.map((num, col_i) => card(num, row_i, col_i))
+            )}
+          </Box>
+          <Box sx={{ display: "flex", mt: "0.8rem" }}>
+            <Stack direction="row" spacing={25}>
+              <Typography sx={{ mt: "4px" }} variant="h5">
+                Moves: {moves}
+              </Typography>
+              <Button size="large" onClick={resetClickHandler}>
+                New Game
+              </Button>
+            </Stack>
+          </Box>
+        </Paper>
+        <Dialog open={isComplete} onClose={dialogCloseHandler}>
+          <DialogTitle>Congragulation! You Win!</DialogTitle>
+          <DialogContent>You win in {moves} moves.</DialogContent>
+          <DialogActions>
+            <Button onClick={dialogResetHandler}>Play Again</Button>
+            <Button onClick={dialogCloseHandler}>Close</Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
     </Box>
   );
 };

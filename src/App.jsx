@@ -34,6 +34,7 @@ function App() {
                 <Route path="/games/npuzzle" element={<NPuzzle />} />
                 <Route path="/games/memorycard" element={<MemoryCard />} />
                 <Route path="/games" element={<Games />} />
+                <Route path="/games:game" element={<Games />} />
                 <Route path="/apps" element={<Apps />} />
                 <Route path="/aboutme" element={<AboutMe />} />
                 <Route path="*" element={<NotFound />} />

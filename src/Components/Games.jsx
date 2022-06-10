@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import SwipeableViews from "react-swipeable-views";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -21,7 +23,17 @@ const Games = () => {
   const gameHandler = (event, newValue) => {
     setValue(newValue);
   };
-
+  const params = useParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log(params.game);
+    params.game && params.game === ":NPuzzle" && setValue(1);
+    params.game && params.game === ":memoryCard" && setValue(0);
+    params.game &&
+      params.game !== ":memoryCard" &&
+      params.game !== ":NPuzzle" &&
+      navigate("/notFound");
+  }, []);
   const memoryTitle = "A Simple Memory Card Game";
   const memoryClipImgs = [memoryClip1, memoryClip2, memoryClip3, memoryClip4];
   const memoryDescription =
@@ -68,32 +80,34 @@ const Games = () => {
           <Tab label="N-Puzzle" id="tab-1" aria-controls="tabpanel-1" />
         </Tabs>
       </Box>
-      <div id="tabpanel-0" aria-labelledby="tab-0">
-        {value === 0 && (
-          <div>
+      <SwipeableViews index={value}>
+        <div id="tabpanel-0" aria-labelledby="tab-0">
+          {value === 0 && (
+            <div>
+              <Introduction
+                title={memoryTitle}
+                description={memoryDescription}
+                clipImgs={memoryClipImgs}
+                instructions={memoryInstructions}
+                techs={MemoryTechs}
+                gamePath="/games/memorycard"
+              />
+            </div>
+          )}
+        </div>
+        <div id="tabpanel-1" aria-labelledby="tab-1">
+          {value === 1 && (
             <Introduction
-              title={memoryTitle}
-              description={memoryDescription}
-              clipImgs={memoryClipImgs}
-              instructions={memoryInstructions}
-              techs={MemoryTechs}
-              gamePath="/games/memorycard"
+              title={NPuzzleTitle}
+              description={NPuzzleDescription}
+              clipImgs={NPuzzleClipImgs}
+              instructions={NPuzzleInstructions}
+              techs={NPuzzleTechs}
+              gamePath="/games/npuzzle"
             />
-          </div>
-        )}
-      </div>
-      <div id="tabpanel-1" aria-labelledby="tab-1">
-        {value === 1 && (
-          <Introduction
-            title={NPuzzleTitle}
-            description={NPuzzleDescription}
-            clipImgs={NPuzzleClipImgs}
-            instructions={NPuzzleInstructions}
-            techs={NPuzzleTechs}
-            gamePath="/games/npuzzle"
-          />
-        )}
-      </div>
+          )}
+        </div>
+      </SwipeableViews>
     </div>
   );
 };
