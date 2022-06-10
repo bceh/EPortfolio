@@ -1,5 +1,6 @@
+import Typography from "@mui/material/Typography";
 const Web = () => {
-  return <h1>Web</h1>;
+  return <Typography variant="h4">Web</Typography>;
 };
 
 export default Web;

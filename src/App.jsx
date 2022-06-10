@@ -11,6 +11,7 @@ import Apps from "./Components/Apps";
 import AboutMe from "./Components/AboutMe";
 import NotFound from "./Components/NotFound";
 import NPuzzle from "./Components/GamesCollection/NPuzzle";
+import MemoryCard from "./Components/GamesCollection/MemoryCard";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,11 +27,12 @@ function App() {
         <Box>
           <BrowserRouter className="content">
             <NavBar />
-            <Box sx={{ ml: { lg: "200px" }, mt: "2rem" }}>
+            <Box sx={{ ml: { lg: "200px" } }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/web" element={<Web />} />
                 <Route path="/games/npuzzle" element={<NPuzzle />} />
+                <Route path="/games/memorycard" element={<MemoryCard />} />
                 <Route path="/games" element={<Games />} />
                 <Route path="/apps" element={<Apps />} />
                 <Route path="/aboutme" element={<AboutMe />} />

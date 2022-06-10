@@ -47,7 +47,7 @@ export const getAns = (type) => {
 
 export const getShuffledCards = (type) => {
   let newCards = [];
-  const arr = [...Array(type * type).keys()];
+  const arr = getAns(type);
   while (arr.length) newCards.push(arr.splice(0, type));
 
   for (let i = 0; i < type * 30; i++) {

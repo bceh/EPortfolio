@@ -136,7 +136,7 @@ const NPuzzle = () => {
       </Paper>
       <Dialog open={isComplete} onClose={dialogCloseHandler}>
         <DialogTitle>Congragulation! You Win!</DialogTitle>
-        <DialogContent>You win in {moves} moves</DialogContent>
+        <DialogContent>You win in {moves} moves.</DialogContent>
         <DialogActions>
           <Button onClick={dialogResetHandler}>Play Again</Button>
           <Button onClick={dialogCloseHandler}>Close</Button>
