@@ -55,7 +55,7 @@ const NavBar = () => {
 
   const list = (
     <Box
-      sx={{ width: drawerWidth }}
+      sx={{ width: { xs: "100vw", sm: drawerWidth } }}
       role="presentation"
       onClick={() => toggleDrawer(false)}
       onKeyDown={() => toggleDrawer(false)}
@@ -94,7 +94,7 @@ const NavBar = () => {
         open={openDrawer}
         onClose={() => toggleDrawer(false)}
         ModalProps={{ keepMounted: true }}
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{ width: { xs: "100vw", sm: drawerWidth }, flexShrink: { sm: 0 } }}
       >
         {list}
       </Drawer>

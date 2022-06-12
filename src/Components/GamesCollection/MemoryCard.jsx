@@ -6,7 +6,7 @@ import FlipCard from "./FlipCard";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const prevCard = [];
 
 const MemoryCard = () => {
@@ -89,6 +89,7 @@ const MemoryCard = () => {
         variant="outlined"
         sx={{ ml: "1rem", mb: "1rem" }}
         onClick={() => navigate("/games:memoryCard")}
+        startIcon={<ArrowBackIcon />}
       >
         Back To Games
       </Button>
@@ -103,12 +104,12 @@ const MemoryCard = () => {
         <Grid
           container
           sx={{
-            minWidth: "790px",
-            maxWidth: "790px",
-            height: "800px",
-            border: "5px solid black",
             display: "flex",
             alignItems: "center",
+
+            width: "80%",
+            maxWidth: "800px",
+            aspectRatio: "1/1",
           }}
         >
           {cards.map(({ item, flipped }, index) => (
@@ -125,15 +126,23 @@ const MemoryCard = () => {
         </Grid>
         <Grid space={4}>
           <Button
-            sx={{ display: `${finished ? "none" : "block-inline"}` }}
+            sx={{
+              display: `${finished ? "none" : "block-inline"}`,
+              m: "1rem",
+            }}
             disabled={finished}
             onClick={showResultHandler}
+            variant="outlined"
           >
             Show Results
           </Button>
           <Button
-            sx={{ display: `${finished ? "block-inline" : "none"}` }}
+            sx={{
+              display: `${finished ? "block-inline" : "none"}`,
+              m: "1rem",
+            }}
             onClick={resetHandler}
+            variant="outlined"
           >
             Play Again
           </Button>

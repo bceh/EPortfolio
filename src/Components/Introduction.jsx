@@ -26,16 +26,22 @@ const Introduction = (props) => {
     justifyContent: "center",
   };
 
-  const clips = clipImgs.map((clip) => (
-    <img style={{ height: "400px" }} src={clip} />
+  const clips = clipImgs.map((clip, index) => (
+    <img
+      style={{ maxHeight: "400px", maxWidth: "80%" }}
+      src={clip}
+      alt={`clip-${index}`}
+    />
   ));
 
-  const MemoryCardIntro = (
+  const cardIntro = (
     <Box
       sx={{
         ...flexCenterStyle,
         flexDirection: "column",
-        width: "470px",
+        p: "1rem",
+        boxSizing: "border-box",
+        maxWidth: "400px",
       }}
     >
       <Typography variant="h6" sx={{ alignSelf: "flex-start" }}>
@@ -88,8 +94,16 @@ const Introduction = (props) => {
     </Box>
   );
 
-  const MemoryCardTech = (
-    <Box sx={{ maxWidth: "470px", minWidth: "400px" }}>
+  const cardTech = (
+    <Box
+      sx={{
+        maxWidth: "470px",
+        minWidth: "400px",
+        boxSizing: "border-box",
+        maxWidth: "400px",
+        p: "1rem",
+      }}
+    >
       <Typography variant="h6">Main Techniques</Typography>
       {techs.map((tech) => (
         <Typography>{tech}</Typography>
@@ -97,7 +111,12 @@ const Introduction = (props) => {
     </Box>
   );
   return (
-    <Box sx={{ ...flexCenterStyle, flexDirection: "column" }}>
+    <Box
+      sx={{
+        ...flexCenterStyle,
+        flexDirection: "column",
+      }}
+    >
       <Typography variant="h5" sx={{ mb: "1rem" }}>
         {title}
       </Typography>
@@ -107,11 +126,11 @@ const Introduction = (props) => {
           alignItems: "start",
           justifyContent: "center",
           flexWrap: "wrap",
-          gap: "3rem",
+          gap: "1rem",
         }}
       >
-        {MemoryCardIntro}
-        {MemoryCardTech}
+        {cardIntro}
+        {cardTech}
       </Box>
     </Box>
   );

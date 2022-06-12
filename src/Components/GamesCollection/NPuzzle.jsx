@@ -16,6 +16,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const NPuzzle = () => {
   const [cards, setCards] = useState([]);
@@ -80,13 +81,13 @@ const NPuzzle = () => {
   const card = (num, rol_i, col_i) => {
     let cardSize = {};
     if (cardsType === 5) {
-      cardSize = { height: "86px", width: "86px", fontSize: "40px" };
+      cardSize = { height: "18.4%", width: "18.4%", fontSize: "40px" };
     }
     if (cardsType === 4) {
-      cardSize = { height: "110px", width: "110px", fontSize: "60px" };
+      cardSize = { height: "23.5%", width: "23.5%", fontSize: "60px" };
     }
     if (cardsType === 3) {
-      cardSize = { height: "150px", width: "150px", fontSize: "80px" };
+      cardSize = { height: "32%", width: "32%", fontSize: "80px" };
     }
     if (num === 0) return <Button key="0" sx={{ ...cardSize }} disabled />;
     const cardColor =
@@ -111,6 +112,7 @@ const NPuzzle = () => {
         variant="outlined"
         sx={{ mb: "1rem", ml: "1rem" }}
         onClick={() => navigate("/games:NPuzzle")}
+        startIcon={<ArrowBackIcon />}
       >
         Back To Games
       </Button>
@@ -133,12 +135,16 @@ const NPuzzle = () => {
               row.map((num, col_i) => card(num, row_i, col_i))
             )}
           </Box>
-          <Box sx={{ display: "flex", mt: "0.8rem" }}>
+          <Box sx={{ display: "flex", m: "0.8rem 0.8rem" }}>
             <Stack direction="row" spacing={25}>
               <Typography sx={{ mt: "4px" }} variant="h5">
                 Moves: {moves}
               </Typography>
-              <Button size="large" onClick={resetClickHandler}>
+              <Button
+                size="large"
+                variant="outlined"
+                onClick={resetClickHandler}
+              >
                 New Game
               </Button>
             </Stack>

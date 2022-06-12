@@ -29,15 +29,22 @@ const FlipCard = (props) => {
     onChangeStatus(index);
   };
 
+  const fontSize = {
+    fontSize: { xs: "12px", sm: "22px" },
+  };
+  const questionMarkFontSize = {
+    fontSize: { xs: "18px", sm: "35px" },
+  };
+
   return (
     <a.div
-      className="card"
+      className="card card-size"
       {...bind()}
       style={{ scale }}
       onClick={clickHandler}
     >
       <a.div
-        className="cardInner-front"
+        className="cardInner-front card-size"
         style={{
           opacity: opacity.to((o) => 1 - o),
           transform,
@@ -54,14 +61,14 @@ const FlipCard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Typography variant="h5">Who</Typography>
-          <Typography variant="h5">am</Typography>
-          <Typography variant="h5">I</Typography>
-          <Typography variant="h2">?</Typography>
+          <Typography sx={{ ...fontSize }}>Who</Typography>
+          <Typography sx={{ ...fontSize }}>am</Typography>
+          <Typography sx={{ ...fontSize }}>I</Typography>
+          <Typography sx={{ ...questionMarkFontSize }}>?</Typography>
         </div>
       </a.div>
       <a.div
-        className="cardInner-back"
+        className="cardInner-back card-size"
         style={{ opacity, transform, rotateY: "180deg" }}
       >
         {getCards(props.item)}

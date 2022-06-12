@@ -1,5 +1,6 @@
+import Typography from "@mui/material/Typography";
 const AboutMe = () => {
-  return <h1>AboutMe</h1>;
+  return <Typography variant="h4">About Me</Typography>;
 };
 
 export default AboutMe;

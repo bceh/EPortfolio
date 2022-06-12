@@ -26,7 +26,6 @@ const Games = () => {
   const params = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(params.game);
     params.game && params.game === ":NPuzzle" && setValue(1);
     params.game && params.game === ":memoryCard" && setValue(0);
     params.game &&
@@ -48,6 +47,7 @@ const Games = () => {
     "1. Use useSpring library to implement the card-flip animation while clicking a card and the zoom-in animation while hovering the mouse on a card.",
     "2. Use use-gesture library to handle the mouse-hovering event.",
     "3. Use useState hook to record the progress of the game, e.g. card status, current clipped card, etc...",
+    "4. Use materials UI sx property to implement responsive UI.",
   ];
 
   const NPuzzleTitle = "A Simple N-Puzzle Game";
@@ -67,6 +67,7 @@ const Games = () => {
   const NPuzzleTechs = [
     "1. Use one useState hook to record the frame after every move. Use another useState hook to record the moves.",
     "2. Use flexbox to align the tiles in the frame.",
+    "3. Use materials UI sx property to implement responsive UI.",
   ];
 
   return (
@@ -80,34 +81,41 @@ const Games = () => {
           <Tab label="N-Puzzle" id="tab-1" aria-controls="tabpanel-1" />
         </Tabs>
       </Box>
-      <SwipeableViews index={value}>
-        <div id="tabpanel-0" aria-labelledby="tab-0">
-          {value === 0 && (
-            <div>
+      <Box
+        sx={{
+          height: "calc(100vh - 160px)",
+          overflow: "scroll",
+        }}
+      >
+        <SwipeableViews index={value}>
+          <div id="tabpanel-0" aria-labelledby="tab-0">
+            {value === 0 && (
+              <div>
+                <Introduction
+                  title={memoryTitle}
+                  description={memoryDescription}
+                  clipImgs={memoryClipImgs}
+                  instructions={memoryInstructions}
+                  techs={MemoryTechs}
+                  gamePath="/games/memorycard"
+                />
+              </div>
+            )}
+          </div>
+          <div id="tabpanel-1" aria-labelledby="tab-1">
+            {value === 1 && (
               <Introduction
-                title={memoryTitle}
-                description={memoryDescription}
-                clipImgs={memoryClipImgs}
-                instructions={memoryInstructions}
-                techs={MemoryTechs}
-                gamePath="/games/memorycard"
+                title={NPuzzleTitle}
+                description={NPuzzleDescription}
+                clipImgs={NPuzzleClipImgs}
+                instructions={NPuzzleInstructions}
+                techs={NPuzzleTechs}
+                gamePath="/games/npuzzle"
               />
-            </div>
-          )}
-        </div>
-        <div id="tabpanel-1" aria-labelledby="tab-1">
-          {value === 1 && (
-            <Introduction
-              title={NPuzzleTitle}
-              description={NPuzzleDescription}
-              clipImgs={NPuzzleClipImgs}
-              instructions={NPuzzleInstructions}
-              techs={NPuzzleTechs}
-              gamePath="/games/npuzzle"
-            />
-          )}
-        </div>
-      </SwipeableViews>
+            )}
+          </div>
+        </SwipeableViews>
+      </Box>
     </div>
   );
 };

@@ -49,17 +49,20 @@ const cards = [
 ];
 
 const getCards = (index) => {
+  const fontSize = {
+    fontSize: { xs: "10px", sm: "20px" },
+  };
   return (
     <Card sx={{ height: "100%" }}>
       <CardMedia
         component="img"
-        height="141"
         image={cards[index].imageName}
         alt={cards[index].imageAlt}
+        sx={{ width: "100%", height: "60%" }}
       />
-      <CardContent sx={{ p: 0, mt: 3 }}>
-        <Typography variant="h5">{cards[index].line1}</Typography>
-        <Typography variant="h5">{cards[index].line2}</Typography>
+      <CardContent sx={{ p: 0, mt: { xs: 1, sm: 2 } }}>
+        <Typography sx={{ ...fontSize }}>{cards[index].line1}</Typography>
+        <Typography sx={{ ...fontSize }}>{cards[index].line2}</Typography>
       </CardContent>
     </Card>
   );
