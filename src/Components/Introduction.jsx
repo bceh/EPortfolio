@@ -129,7 +129,6 @@ const Introduction = (props) => {
   const cardTech = (
     <Box
       sx={{
-        maxWidth: "470px",
         minWidth: "400px",
         boxSizing: "border-box",
         maxWidth: "400px",

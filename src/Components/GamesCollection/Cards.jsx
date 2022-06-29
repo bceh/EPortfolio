@@ -3,12 +3,12 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-import Melbourne from "./CardsImage/Melbourne.jpg";
-import MonashUni from "./CardsImage/MonashUni.jpeg";
-import WebDeveloper from "./CardsImage/WebDeveloper.jpg";
-import Cat from "./CardsImage/Cat.jpeg";
-import Skills from "./CardsImage/Skills.jpg";
-import PhDDegree from "./CardsImage/PhDDegree.png";
+import Melbourne from "../../resources/CardsImage/Melbourne.webp";
+import MonashUni from "../../resources/CardsImage/MonashUni.webp";
+import WebDeveloper from "../../resources/CardsImage/WebDeveloper.webp";
+import Cat from "../../resources/CardsImage/Cat.webp";
+import Skills from "../../resources/CardsImage/Skills.webp";
+import PhDDegree from "../../resources/CardsImage/PhDDegree.webp";
 const cards = [
   {
     imageName: Melbourne,

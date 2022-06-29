@@ -7,14 +7,14 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-import memoryClip1 from "./GamesImg/memoryClip1.webp";
-import memoryClip2 from "./GamesImg/memoryClip2.webp";
-import memoryClip3 from "./GamesImg/memoryClip3.webp";
-import memoryClip4 from "./GamesImg/memoryClip4.webp";
-import NPuzzleClip1 from "./GamesImg/NPuzzleClip1.webp";
-import NPuzzleClip2 from "./GamesImg/NPuzzleClip2.webp";
-import NPuzzleClip3 from "./GamesImg/NPuzzleClip3.webp";
-import NPuzzleClip4 from "./GamesImg/NPuzzleClip4.webp";
+import memoryClip1 from "../resources/GamesImg/memoryClip1.webp";
+import memoryClip2 from "../resources/GamesImg/memoryClip2.webp";
+import memoryClip3 from "../resources/GamesImg/memoryClip3.webp";
+import memoryClip4 from "../resources/GamesImg/memoryClip4.webp";
+import NPuzzleClip1 from "../resources/GamesImg/NPuzzleClip1.webp";
+import NPuzzleClip2 from "../resources/GamesImg/NPuzzleClip2.webp";
+import NPuzzleClip3 from "../resources/GamesImg/NPuzzleClip3.webp";
+import NPuzzleClip4 from "../resources/GamesImg/NPuzzleClip4.webp";
 import Introduction from "./Introduction";
 
 const Games = () => {

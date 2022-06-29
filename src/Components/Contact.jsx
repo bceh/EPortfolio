@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
 import "./bg.css";
 
 const Contact = () => {
@@ -48,10 +47,14 @@ const Contact = () => {
         <Typography variant="h4">cbqfrancis@gmail.com</Typography>
         <Typography
           variant="h4"
-          sx={{ cursor: "pointer", mt: "2rem", textDecoration: "underline" }}
-          onClick={() => (document.location.href = "https://github.com/bceh")}
+          sx={{
+            cursor: "pointer",
+            mt: "2rem",
+          }}
         >
-          GitHub
+          <a style={{ color: "black" }} href="https://github.com/bceh">
+            GitHub
+          </a>
         </Typography>
         <Box sx={{ height: "30vh" }} />
       </Box>
