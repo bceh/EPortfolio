@@ -1,6 +1,9 @@
 //react Components
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import resume from "../resources/Bingqing(Francis) Cheng.pdf";
+import "./NavBar.css";
+
 //MUI materials
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -70,8 +73,17 @@ const NavBar = () => {
       </List>
       <Divider />
       <List>
-        {listItem("About Me", <Person />, "/aboutme")}
-        {listItem("Resume", <FilePresent />, "/")}
+        {listItem("Contact", <Person />, "/contact")}
+        <Link to={resume} target="_blank" className="resume-link" download>
+          <ListItem key="Resume" disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <FilePresent />
+              </ListItemIcon>
+              <ListItemText>Resume</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </Link>
       </List>
     </Box>
   );

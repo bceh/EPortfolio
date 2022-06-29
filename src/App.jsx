@@ -7,7 +7,7 @@ import Welcoming from "./Components/Welcoming";
 import Box from "@mui/material/Box";
 import Web from "./Components/Web";
 import Games from "./Components/Games";
-import AboutMe from "./Components/AboutMe";
+import Contact from "./Components/Contact";
 import NotFound from "./Components/NotFound";
 import NPuzzle from "./Components/GamesCollection/NPuzzle";
 import MemoryCard from "./Components/GamesCollection/MemoryCard";
@@ -35,7 +35,7 @@ function App() {
                 <Route path="/games/memorycard" element={<MemoryCard />} />
                 <Route path="/games" element={<Games />} />
                 <Route path="/games:game" element={<Games />} />
-                <Route path="/aboutme" element={<AboutMe />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Box>

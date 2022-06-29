@@ -13,6 +13,7 @@ import changePage from "../resources/changePage.webp";
 import report from "../resources/report.webp";
 import manage from "../resources/manage.webp";
 import profile from "../resources/profile.webp";
+import "./bg.css";
 
 const Web = () => {
   const [value, setValue] = useState(0);
@@ -120,10 +121,10 @@ const Web = () => {
             </Box>
           )}
         </Box>
-        <Box className="g-g-bg">
-          <Box className="g-g-polygon-1"></Box>
-          <Box className="g-g-polygon-2"></Box>
-          <Box className="g-g-polygon-3"></Box>
+        <Box className="g-bg g-g-bg">
+          <Box className="g-polygon-1"></Box>
+          <Box className="g-polygon-2"></Box>
+          <Box className="g-polygon-3"></Box>
         </Box>
       </Box>
     </div>
