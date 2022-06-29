@@ -1,5 +1,5 @@
 .container {
-  margin: 0 1rem;
+  margin: 3rem 1rem;
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -13,4 +13,5 @@
   max-width: 500px;
   display: inline-block;
   font-family: Comfortaa;
+  font-size: 1rem;
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import SwipeableViews from "react-swipeable-views";
-
+import "./Games.css";
+import "./bg.css";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -33,6 +33,7 @@ const Games = () => {
       params.game !== ":NPuzzle" &&
       navigate("/notFound");
   }, []);
+
   const memoryTitle = "A Simple Memory Card Game";
   const memoryClipImgs = [memoryClip1, memoryClip2, memoryClip3, memoryClip4];
   const memoryDescription =
@@ -71,7 +72,7 @@ const Games = () => {
   ];
 
   return (
-    <div>
+    <React.Fragment>
       <Typography sx={{ mt: 0 }} variant="h4">
         Games
       </Typography>
@@ -85,25 +86,30 @@ const Games = () => {
         sx={{
           height: "calc(100vh - 160px)",
           overflow: "scroll",
+          position: "relative",
         }}
       >
-        <SwipeableViews index={value}>
-          <div id="tabpanel-0" aria-labelledby="tab-0">
-            {value === 0 && (
-              <div>
-                <Introduction
-                  title={memoryTitle}
-                  description={memoryDescription}
-                  clipImgs={memoryClipImgs}
-                  instructions={memoryInstructions}
-                  techs={MemoryTechs}
-                  gamePath="/games/memorycard"
-                />
-              </div>
-            )}
-          </div>
-          <div id="tabpanel-1" aria-labelledby="tab-1">
-            {value === 1 && (
+        <Box
+          sx={{
+            position: "absolute",
+            zIndex: 100,
+            width: "100%",
+          }}
+        >
+          {value === 0 && (
+            <Box className="description-container">
+              <Introduction
+                title={memoryTitle}
+                description={memoryDescription}
+                clipImgs={memoryClipImgs}
+                instructions={memoryInstructions}
+                techs={MemoryTechs}
+                gamePath="/games/memorycard"
+              />
+            </Box>
+          )}
+          {value === 1 && (
+            <Box className="description-container">
               <Introduction
                 title={NPuzzleTitle}
                 description={NPuzzleDescription}
@@ -112,11 +118,16 @@ const Games = () => {
                 techs={NPuzzleTechs}
                 gamePath="/games/npuzzle"
               />
-            )}
-          </div>
-        </SwipeableViews>
+            </Box>
+          )}
+        </Box>
+        <Box className="g-bg g-g-bg">
+          <Box className="g-polygon-1"></Box>
+          <Box className="g-polygon-2"></Box>
+          <Box className="g-polygon-3"></Box>
+        </Box>
       </Box>
-    </div>
+    </React.Fragment>
   );
 };
 

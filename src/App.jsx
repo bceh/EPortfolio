@@ -7,7 +7,6 @@ import Welcoming from "./Components/Welcoming";
 import Box from "@mui/material/Box";
 import Web from "./Components/Web";
 import Games from "./Components/Games";
-import Apps from "./Components/Apps";
 import AboutMe from "./Components/AboutMe";
 import NotFound from "./Components/NotFound";
 import NPuzzle from "./Components/GamesCollection/NPuzzle";
@@ -25,17 +24,17 @@ function App() {
         <Welcoming />
       ) : (
         <Box>
-          <BrowserRouter className="content">
+          <BrowserRouter>
             <NavBar />
             <Box sx={{ ml: { lg: "200px" } }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/web" element={<Web />} />
+                <Route path="/web:web" element={<Web />} />
                 <Route path="/games/npuzzle" element={<NPuzzle />} />
                 <Route path="/games/memorycard" element={<MemoryCard />} />
                 <Route path="/games" element={<Games />} />
                 <Route path="/games:game" element={<Games />} />
-                <Route path="/apps" element={<Apps />} />
                 <Route path="/aboutme" element={<AboutMe />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

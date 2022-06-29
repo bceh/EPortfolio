@@ -1,0 +1,21 @@
+.link-container {
+  width: 100%;
+  text-align: center;
+}
+
+.link-content {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+
+.link-content:hover {
+  gap: 1rem;
+}

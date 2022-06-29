@@ -1,6 +1,49 @@
 .home-container {
-  padding: 0;
+  position: relative;
+  min-height: calc(100vh - 4rem);
+  width: 100%;
+}
+.home-content {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: calc(100vh - 4rem);
+}
+
+.fadeInRight {
+  animation: fadeInRight 1s;
+}
+.fadeInDown {
+  transform: translateY(100vh);
+  animation: fadeInDown 1s 1s forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.image {
+  position: absolute;
+  right: 5vh;
+  top: 20vh;
+  max-height: 70vh;
+  min-height: 600px;
 }

@@ -19,7 +19,7 @@ import Person from "@mui/icons-material/Person";
 import Web from "@mui/icons-material/Web";
 import FilePresent from "@mui/icons-material/FilePresent";
 import VideogameAsset from "@mui/icons-material/VideogameAsset";
-import Apps from "@mui/icons-material/Apps";
+
 const NavBar = () => {
   const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -32,6 +32,7 @@ const NavBar = () => {
     justifyContent: "space-between",
     alignItems: "center",
     margin: 0,
+    minHeight: "4rem",
   };
 
   const nameStyle = {
@@ -66,7 +67,6 @@ const NavBar = () => {
         {listItem("Home", <Home />, "/")}
         {listItem("Web", <Web />, "/web")}
         {listItem("Games", <VideogameAsset />, "/games")}
-        {listItem("Apps", <Apps />, "/apps")}
       </List>
       <Divider />
       <List>
