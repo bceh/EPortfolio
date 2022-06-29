@@ -4,9 +4,9 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import "./Gallery.css";
 import GalleryCard from "./GalleryCard";
-import moneybank from "../resources/moneybank.png";
-import eportfolio2 from "../resources/eportfolio2.png";
-import games from "../resources/games.png";
+import moneybank from "../resources/moneybank.webp";
+import eportfolio from "../resources/eportfolio.webp";
+import games from "../resources/games.webp";
 
 const Gallery = () => {
   return (
@@ -27,7 +27,7 @@ const Gallery = () => {
         <Grid item xs={12} sm={4} className="gallery-item">
           <GalleryCard
             title="E-Portfolio"
-            fig={eportfolio2}
+            fig={eportfolio}
             description="A straight forward personal E-portfolio. Built by using React, and Material UI."
             text="MORE"
             link="/web:eportfolio"

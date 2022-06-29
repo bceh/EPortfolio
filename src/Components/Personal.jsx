@@ -1,7 +1,7 @@
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import "./Personal.css";
-import seflie from "../resources/selfie.png";
+import seflie from "../resources/selfie.webp";
 import ArrowLink from "./ArrowLink";
 
 const Personal = (props) => {

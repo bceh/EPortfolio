@@ -9,7 +9,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 const Introduction = (props) => {
-  const { description, title, techs, clipImgs, instructions, gamePath } = props;
+  const {
+    description,
+    title,
+    techs,
+    clipImgs,
+    instructions,
+    gamePath,
+    webPath,
+  } = props;
   const [page, setPage] = useState(1);
 
   const pageHandler = (e, page) => {
@@ -58,39 +66,63 @@ const Introduction = (props) => {
           ...flexCenterStyle,
         }}
       >
-        <IconButton onClick={() => pageChangeHandler(-1)} disabled={page === 1}>
-          <ArrowCircleLeft sx={{ width: "30px", height: "30px" }} />
-        </IconButton>
+        {clips.length > 1 && (
+          <IconButton
+            onClick={() => pageChangeHandler(-1)}
+            disabled={page === 1}
+          >
+            <ArrowCircleLeft sx={{ width: "30px", height: "30px" }} />
+          </IconButton>
+        )}
         {clips[page - 1]}
-        <IconButton
-          onClick={() => pageChangeHandler(1)}
-          disabled={page === clips.length}
-        >
-          <ArrowCircleRight sx={{ width: "30px", height: "30px" }} />
-        </IconButton>
+        {clips.length > 1 && (
+          <IconButton
+            onClick={() => pageChangeHandler(1)}
+            disabled={page === clips.length}
+          >
+            <ArrowCircleRight sx={{ width: "30px", height: "30px" }} />
+          </IconButton>
+        )}
       </Box>
 
       <Typography variant="p" sx={{ mt: "1rem", alignSelf: "flex-start" }}>
         {instructions[page - 1]}
       </Typography>
-      <Pagination
-        sx={{ mt: "1rem" }}
-        showFirstButton
-        showLastButton
-        hidePrevButton
-        hideNextButton
-        count={clips.length}
-        page={page}
-        onChange={pageHandler}
-      />
-      <Box sx={{ mt: "1rem" }}>
-        <Typography variant="p" sx={{ m: "1rem" }}>
-          Want have a try?
-        </Typography>
-        <Button variant="outlined" onClick={() => navigate(gamePath)}>
-          Play Now
-        </Button>
-      </Box>
+      {clips.length > 1 && (
+        <Pagination
+          sx={{ mt: "1rem" }}
+          showFirstButton
+          showLastButton
+          hidePrevButton
+          hideNextButton
+          count={clips.length}
+          page={page}
+          onChange={pageHandler}
+        />
+      )}
+      {gamePath && (
+        <Box sx={{ mt: "1rem" }}>
+          <Typography variant="p" sx={{ m: "1rem" }}>
+            Want have a try?
+          </Typography>
+          <Button variant="outlined" onClick={() => navigate(gamePath)}>
+            Play Now
+          </Button>
+        </Box>
+      )}
+      {webPath && (
+        <Box sx={{ mt: "1rem" }}>
+          <Typography variant="p" sx={{ m: "1rem" }}>
+            Check the demo
+          </Typography>
+          <Button
+            variant="outlined"
+            onClick={() => (document.location.href = webPath)}
+          >
+            Go
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 
