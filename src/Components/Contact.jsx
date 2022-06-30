@@ -4,24 +4,25 @@ import "./bg.css";
 
 const Contact = () => {
   return (
-    <Box>
+    <Box sx={{ position: "relative", width: "100%" }}>
       <Box
         sx={{
+          position: "absolute",
           display: "flex",
           width: "100%",
           height: "calc(100vh - 64px)",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          border: "1px solid black",
         }}
       >
-        <Typography variant="h4" sx={{ mb: "2rem" }}>
+        <Typography variant="h4" sx={{ mb: "2rem", fontFamily: "Comfortaa" }}>
           CONTACT ME
         </Typography>
         <Typography
           sx={{
             color: "lightblue",
+            fontFamily: "Comfortaa",
             "&::selection": {
               backgroundColor: "cyan",
             },
@@ -33,6 +34,7 @@ const Contact = () => {
         <Typography
           sx={{
             color: "lightblue",
+            fontFamily: "Comfortaa",
             "&::selection": {
               backgroundColor: "cyan",
             },
@@ -41,10 +43,12 @@ const Contact = () => {
         >
           Drop me a line if you want a chat.
         </Typography>
-        <Typography sx={{ mt: "2rem" }} variant="h4">
+        <Typography sx={{ mt: "2rem", fontFamily: "Comfortaa" }} variant="h4">
           0416440306
         </Typography>
-        <Typography variant="h4">cbqfrancis@gmail.com</Typography>
+        <Typography sx={{ fontFamily: "Comfortaa" }} variant="h4">
+          cbqfrancis@gmail.com
+        </Typography>
         <Typography
           variant="h4"
           sx={{
@@ -52,7 +56,10 @@ const Contact = () => {
             mt: "2rem",
           }}
         >
-          <a style={{ color: "black" }} href="https://github.com/bceh">
+          <a
+            style={{ fontFamily: "Comfortaa", color: "black" }}
+            href="https://github.com/bceh"
+          >
             GitHub
           </a>
         </Typography>
