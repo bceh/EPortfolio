@@ -1,6 +1,6 @@
 # Francis Cheng's E-Portfolio
 
-Click [here](bingqingcheng.com) to visit.
+Click [here](http://bingqingcheng.com) to visit.
 
 ## Techniques
 
