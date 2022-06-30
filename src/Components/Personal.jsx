@@ -20,7 +20,7 @@ const Personal = (props) => {
           words, I got a PhD degree on Materials Science and Engineering and
           returned a web developer.
         </p>
-        <ArrowLink text="Meet Me" link="/aboutme" />
+        <ArrowLink text="Meet Me" link="/contact" />
       </article>
     </Paper>
   );

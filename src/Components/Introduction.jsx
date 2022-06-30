@@ -55,7 +55,10 @@ const Introduction = (props) => {
       <Typography variant="h6" sx={{ alignSelf: "flex-start" }}>
         Description
       </Typography>
-      <Typography variant="p" sx={{ mb: "1rem", alignSelf: "flex-start" }}>
+      <Typography
+        variant="p"
+        sx={{ mb: "1rem", alignSelf: "flex-start", p: 1 }}
+      >
         {description}
       </Typography>
       <Typography variant="h6" sx={{ alignSelf: "flex-start" }}>
@@ -85,7 +88,10 @@ const Introduction = (props) => {
         )}
       </Box>
 
-      <Typography variant="p" sx={{ mt: "1rem", alignSelf: "flex-start" }}>
+      <Typography
+        variant="p"
+        sx={{ mt: "1rem", alignSelf: "flex-start", p: 1 }}
+      >
         {instructions[page - 1]}
       </Typography>
       {clips.length > 1 && (
@@ -137,7 +143,7 @@ const Introduction = (props) => {
     >
       <Typography variant="h6">Main Techniques</Typography>
       {techs.map((tech) => (
-        <Typography>{tech}</Typography>
+        <Typography sx={{ p: 1 }}>{tech}</Typography>
       ))}
     </Box>
   );
@@ -148,7 +154,7 @@ const Introduction = (props) => {
         flexDirection: "column",
       }}
     >
-      <Typography variant="h5" sx={{ mb: "1rem" }}>
+      <Typography variant="h5" sx={{ mb: "1rem", mt: "1rem" }}>
         {title}
       </Typography>
       <Box
